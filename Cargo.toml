@@ -1,0 +1,15 @@
+[package]
+name = "pedidosya-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+pedidosya-courier-rs = { path = "../pedidosya-courier-rs/" }
+keyring = { version = "3", features = [
+	"apple-native",
+	"windows-native",
+	"sync-secret-service",
+] }
+clap = { version = "4.5.45", features = ["derive"] }
+rpassword = "7.4.0"
