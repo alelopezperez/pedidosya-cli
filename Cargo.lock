@@ -961,6 +961,7 @@ dependencies = [
 [[package]]
 name = "pedidosya-courier-rs"
 version = "0.1.0"
+source = "git+https://github.com/alelopezperez/pedidosya-courier-rs#ef8aa1ebd8ca7781ae978567887ab79a28d3e74e"
 dependencies = [
  "reqwest",
  "serde",
