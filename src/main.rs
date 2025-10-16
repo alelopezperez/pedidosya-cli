@@ -32,6 +32,24 @@ fn main() -> Result<(), String> {
                 println!("{:#?}", hook);
             });
         }
+        Command::Order => {
+            let entry = Entry::new("pedidos-cli", "default-user").unwrap();
+
+            let pass = entry
+                .get_password()
+                .map_err(|_| "There is no saved api key")?;
+
+            print!("Shipping Order Id: ");
+            stdout().flush().unwrap();
+            let mut shipping_id = String::new();
+            io::stdin().read_line(&mut shipping_id).unwrap();
+            let shipping_id = shipping_id.trim().to_owned();
+
+            let shipping_order = PedidosYaBlocking::blocking_get_orderstatus(pass, shipping_id)
+                .map_err(|_| "Request Error")?;
+
+            println!("{:#?}", shipping_order)
+        }
         Command::Set => {
             let entry = Entry::new("pedidos-cli", "default-user").unwrap();
 
@@ -112,4 +130,5 @@ enum Command {
     Login,
     List,
     Set,
+    Order,
 }

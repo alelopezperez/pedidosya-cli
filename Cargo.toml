@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-
 pedidosya-courier-rs = { git = "https://github.com/alelopezperez/pedidosya-courier-rs" }
 keyring = { version = "3", features = [
 	"apple-native",
